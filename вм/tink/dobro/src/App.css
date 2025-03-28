@@ -1,0 +1,22 @@
+/* App.css */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black; /* Задаем черный фон */
+  color: white; /* Задаем белый цвет текста для контраста */
+  font-family: Arial, sans-serif; /* Задаем шрифт */
+}
+div {
+	display: grid;
+	place-content: center;
+}
+input[type=text] {
+	appearance: none;
+	border: none;
+	outline: none;
+	border-bottom: .2em solid #8b00fF;
+	background: rgba(139, 0, 255, 50%);
+	border-radius: .2em .2em 0 0;
+	padding: .4em;
+	color: #8b00ff;
+}
