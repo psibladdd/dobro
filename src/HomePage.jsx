@@ -11,7 +11,7 @@ const HomePage = () => {
   };
 
   const handleButtonClick = () => {
-    if (inputValue === 'добро' || inputValue === '356876239671056') {
+    if (inputValue === 'добро' || inputValue === '13452') {
       navigate(`/${inputValue}`);
     } else {
       alert('Анлука неправильно(');
