@@ -1,22 +1,25 @@
-/* App.css */
 body {
   margin: 0;
-  padding: 0;
-  background-color: black; /* Задаем черный фон */
-  color: white; /* Задаем белый цвет текста для контраста */
-  font-family: Arial, sans-serif; /* Задаем шрифт */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
-div {
-	display: grid;
-	place-content: center;
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
 }
-input[type=text] {
-	appearance: none;
-	border: none;
-	outline: none;
-	border-bottom: .2em solid #8b00fF;
-	background: rgba(139, 0, 255, 50%);
-	border-radius: .2em .2em 0 0;
-	padding: .4em;
-	color: #8b00ff;
+
+.bouncing-text {
+  position: absolute;
+  font-size: 6rem;
+  font-weight: bold;
+  white-space: nowrap;
+  user-select: none;
+  transition: color 0.3s ease;
 }
