@@ -73,7 +73,7 @@ function App() {
           color: color
         }}
       >
-        ВМВМ
+        ЛЕОНТИН ЛОХ
       </div>
     </div>
   );
