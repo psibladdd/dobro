@@ -2,7 +2,6 @@ import { Canvas } from "@react-three/fiber";
 import { Edges, OrbitControls } from '@react-three/drei';
 import { useState } from 'react';
 import './App.css';
-import {is} from "@react-three/fiber/dist/declarations/src/core/utils.js";
 
 const Cube = ({rot, size, color,pos}) => {
     return (
@@ -15,22 +14,21 @@ const Cube = ({rot, size, color,pos}) => {
         </>
     );
 }
-const Road = ({rot,size,pos}) => {
-    return (
-        <group rotation={rot} position={pos}>
-            <mesh>
-                <boxGeometry args={size}/>
-                <meshBasicMaterial color="#333333"/>
-                <Edges color="block"/>
-            </mesh>
-            <mesh position={[0,0.02,0]}>
-                <boxGeometry args={[size[0],size[1]*1.1,size[2]*0.1]}/>
-                <meshBasicMaterial color="yellow"/>
-            </mesh>
-
-        </group>
-    );
-}
+const Road = ({ rot, size, pos }) => {
+  return (
+    <group rotation={rot} position={pos}>
+      <mesh>
+        <boxGeometry args={size} />
+        <meshBasicMaterial color="#333333" />
+        <Edges color="black" />
+      </mesh>
+      <mesh position={[0, 0.02, 0]}>
+        <boxGeometry args={[size[0], size[1] * 1.1, size[2] * 0.1]} />
+        <meshBasicMaterial color="yellow" />
+      </mesh>
+    </group>
+  );
+};
 const StreetLamp = ({position,isNight}) => {
     return (
         <group position={position}>
@@ -71,8 +69,14 @@ const App = () => {
 
             <Canvas style={{ background: isNight ? "black" : 'skyblue',width:'100%',height:'100%' }}>
                 <StreetLamp position={[0,0,1]} isNight={isNight}/>
-                <Road rot={[0,Math]}
+                <Road rot={[0,Math.PI/4, 0]} size={[3, 0.1, 0.4]} pos={[0.92,0.1,0.92]}/>
+                <Road rot={[0,Math.PI/4, 0]} size={[3, 0.1, 0.4]} pos={[-0.92,0.1,-0.92]}/>
+                <Road rot={[0,-Math.PI/4, 0]} size={[3, 0.1, 0.4]} pos={[0,0.1,0]}/>
                 <Cube rot={[0, Math.PI/4, 0]} size={[3, 0.25, 3]} color={"green"} pos={[0,0,0]}/>
+                <Cube rot={[0, Math.PI/4, 0]} size={[0.3, 1, 0.5]} color={"blue"} pos={[-1,0.4,0]}/>
+
+                <Cube rot={[0, Math.PI/4, 0]} size={[0.3, 1, 0.5]} color={"blue"} pos={[0,0.4,-1]}/>
+                <Cube rot={[0, Math.PI/4, 0]} size={[0.3, 1, 0.5]} color={"blue"} pos={[1,0.4,0]}/>
                 <OrbitControls
                     minDistance={5}
                     maxDistance={50}
