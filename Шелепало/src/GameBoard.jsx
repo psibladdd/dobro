@@ -29,21 +29,25 @@ const Road = ({rot,size,pos}) => {
         </group>
     );
 }
-const StreetLamp = ({position,isNight}) => {
-    return (
-        <group position={position}>
-            <mesh position={[0,0.2,0]}>
-                <cylinderGeometry args={[0.02,0.02,0.3,16]}/>
-                <meshBasicMaterial color="black"/>
-            </mesh>
+const StreetLamp = ({ position, isNight }) => {
+  return (
+    <group position={position}>
+      <mesh position={[0, 0.2, 0]}>
+        <cylinderGeometry args={[0.02, 0.02, 0.3, 16]} />
+        <meshBasicMaterial color="black" />
+      </mesh>
 
-<mesh position={[0,0.35,0]}>
-    <sphereGeometry args={[0.05,16,16]}/>
-    <meshBasicMaterial color={isNight ? "yellow" : "white"}/>
-   </mesh>
-        </group>
-    );
-}
+      <mesh position={[0, 0.35, 0]}>
+        <sphereGeometry args={[0.05, 16, 16]} />
+        <meshBasicMaterial
+          color={isNight ? "yellow" : "white"}
+        />
+      </mesh>
+    </group>
+  );
+};
+
+
 
 const App = () => {
     const [isNight, setIsNight] = useState(false);
@@ -68,8 +72,9 @@ const App = () => {
                 </button>
             <Canvas style={{ background: isNight ? "black" : 'skyblue',width:'100%',height:'100%' }}>
                 <Road rot={[0,Math.PI/4,0]} pos={[0.42,1.5,0.42]} size={[3,0.1,0.4]}/>
-                <StreetLamp position={[0,1.5,1]} isNight={isNight}/>
-                <StreetLamp position={[0,1.5,1]} isNight={isNight}/>
+                <StreetLamp position={[0,1.5,2]} isNight={isNight}/>
+                <StreetLamp position={[1,1.5,1]} isNight={isNight}/>
+                <Cube rot={[0, Math.PI/4, 0]} size={[0.8, 3, 0.2]} color={"purple"} pos={[0.2,1.5,0.2]}/>
                 <Cube rot={[0, Math.PI/4, 0]} size={[3, 3, 3]} color={"green"} pos={[0,0,0]}/>
                 <OrbitControls
                     minDistance={5}
