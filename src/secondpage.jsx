@@ -6,15 +6,20 @@ const SecondPage = () => {
   const { word } = useParams();
 
   let displayWord;
-  if (word === 'добро') {
-    displayWord = 'Вы уже на половине пути к чему-то интересному! Я знаю, что у нескольких организаторов есть нужная вам информация! Попробуйте написать организатору, у которого брат Юра...';
-  } else if (word === '13452') {
-    displayWord = 'чжухнч. Я - тот, кто может делать более 5 дел одновременно. Я - велик, но сейчас все знают меня под вкусным псевдонимом(';
+  if (word === 'призрак') {
+    displayWord = 'Предъявите 4 уровень';
+  }
+  else if (word === 'молчание') {
+    displayWord = 'Вы должны сделать выбор. Кому доверитесь?';
+  }else if (word === '0043') {
+    displayWord = 'начало поможет вам закончить это дело';
+  }else if (word === '328331') {
+    displayWord = '"ПРОТОКОЛ \'ЗАКАТ\' АКТИВИРОВАН. ЛАБОРАТОРИЯ ЗАПЕЧАТАНА."';
   }
 
   return (
     <div className="center-container">
-      <p>{displayWord}</p>
+      <p style={{color:"white"}}>{displayWord}</p>
       {/* Add more content based on the word if needed */}
     </div>
   );
