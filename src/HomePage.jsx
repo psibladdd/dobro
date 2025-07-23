@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import "./App.css"
+import "./App.css";
 
 const HomePage = () => {
   const [inputValue, setInputValue] = useState('');
@@ -11,22 +11,50 @@ const HomePage = () => {
   };
 
   const handleButtonClick = () => {
-    if (inputValue === 'добро' || inputValue === '13452') {
+    if (inputValue === 'призрак' || inputValue === 'молчание' || inputValue === '0043' || inputValue === '328331') {
       navigate(`/${inputValue}`);
-    } else {
-      alert('Анлука неправильно(');
     }
   };
 
   return (
-    <div>
+    <div style={{
+      backgroundColor: 'black',
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }}>
       <input
         type="text"
         value={inputValue}
         onChange={handleInputChange}
         placeholder=""
+        style={{
+          padding: '10px',
+          backgroundColor: '#6a0dad', // Фиолетовый цвет
+          color: 'white',
+          border: 'none',
+          borderRadius: '5px',
+          fontSize: '16px',
+          marginBottom: '10px',
+          outline: 'none',
+        }}
       />
-      <button onClick={handleButtonClick}>проверить</button>
+      <button
+        onClick={handleButtonClick}
+        style={{
+          padding: '10px 20px',
+          backgroundColor: '#4b0082', // Темно-фиолетовый
+          color: 'white',
+          border: 'none',
+          borderRadius: '5px',
+          cursor: 'pointer',
+          fontSize: '16px',
+        }}
+      >
+        проверить
+      </button>
     </div>
   );
 };
