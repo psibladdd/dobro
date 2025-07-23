@@ -1,6 +1,5 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import './SecondPage.css'; // Импортируем CSS файл для стилей
 
 const SecondPage = () => {
   const { word } = useParams();
