@@ -2,14 +2,11 @@ import { Canvas, useLoader, useThree } from "@react-three/fiber";
 import { Text, Edges, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import { Suspense, useState, useRef, useEffect, useCallback } from 'react';
-import logo from '/Плажка.svg';
-import red from '/redBlured.svg';
-import yellow from '/желто.svg';
-import green from '/зелено.svg';
-import graphVideo1 from '/график вниз.mp4';
-import graphVideo2 from '/график нейтральный.mp4';
-import graphVideo3 from '/вверх график.mp4';
-import mainVideo from '/main.mp4';
+import logo from './/Плажка.svg';
+import graphVideo1 from './/график вниз.mp4';
+import graphVideo2 from './/график нейтральный.mp4';
+import graphVideo3 from './/вверх график.mp4';
+import mainVideo from './/main.mp4';
 import './index.css';
 
 // ---------- CLOUDS ----------
