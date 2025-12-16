@@ -2,11 +2,11 @@ import { Canvas, useLoader, useThree } from "@react-three/fiber";
 import { Text, Edges, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import { Suspense, useState, useRef, useEffect, useCallback } from 'react';
-import logo from './/Плажка.svg';
-import graphVideo1 from './/график вниз.mp4';
-import graphVideo2 from './/график нейтральный.mp4';
-import graphVideo3 from './/вверх график.mp4';
-import mainVideo from './/main.mp4';
+import logo from '/Плажка.svg';
+import graphVideo1 from '/график вниз.mp4';
+import graphVideo2 from '/график нейтральный.mp4';
+import graphVideo3 from '/вверх график.mp4';
+import mainVideo from '/main.mp4';
 import './index.css';
 
 // ---------- CLOUDS ----------
@@ -720,15 +720,15 @@ const Scene = ({
               </mesh>
               <Text
                 position={[0, 0, 1]}
-                fontSize={0.6}
+                fontSize={0.4}
                 color="#4A6FFE"
                 anchorX="center"
                 anchorY="middle"
-                maxWidth={7}
+                maxWidth={8}
                 textAlign='center'
                 font="/seenonim-v1.ttf"
               >
-                ИНФОРМАЦИЯ О ПРОЕКТЕ...
+                Сервис для отслеживания динамики клиентских настроений и проблем по конкретным продуктам в режиме реального времени
               </Text>
             </group>
 
@@ -745,15 +745,19 @@ const Scene = ({
               </mesh>
               <Text
                 position={[0, 0, 1]}
-                fontSize={0.6}
+                fontSize={0.4}
                 color="#4A6FFE"
                 anchorX="center"
                 anchorY="middle"
-                maxWidth={7}
+                maxWidth={9}
                 textAlign='center'
                 font="/seenonim-v1.ttf"
               >
-                КОМАНДА...
+                Менеджер - Кукунова Мария
+Исследователь - Терюха Дарья
+Техник - Шипунов Дмитрий
+Ассистент - Фортунатов Максим
+
               </Text>
             </group>
           </>
@@ -848,17 +852,17 @@ const App = () => {
           const newPlacement2 = lerpArray(targetPlacement2, targetPlacement1, easedProgress);
           const newPlacement3 = lerpArray(targetPlacement3, [100,-10,0], easedProgress);
 
-          setTablePlacement1(newPlacement1);
-          setTablePlacement2(newPlacement2);
-          setTablePlacement3(newPlacement3);
+          setTablePlacement1(targetPlacement3);
+          setTablePlacement2(targetPlacement1);
+          setTablePlacement3([100,-10,0]);
 
           const newRotation1 = lerpArray(targetRotation1, targetRotation3, easedProgress);
           const newRotation2 = lerpArray(targetRotation2, targetRotation1, easedProgress);
           const newRotation3 = lerpArray(targetRotation3, targetRotation3, easedProgress);
 
-          setTableRotation1(newRotation1);
-          setTableRotation2(newRotation2);
-          setTableRotation3(newRotation3);
+          setTableRotation1(targetRotation3);
+          setTableRotation2(targetRotation1);
+          setTableRotation3(targetRotation3);
         } else if (newTable === 1) {
           const newPlacement1 = lerpArray(targetPlacement2, targetPlacement1, easedProgress);
           const newPlacement2 = lerpArray([-100,-10,0], targetPlacement2, easedProgress);
@@ -868,12 +872,12 @@ const App = () => {
           const newRotation2 = lerpArray(targetRotation2, targetRotation2, easedProgress);
           const newRotation3 = lerpArray(targetRotation1, targetRotation3, easedProgress);
 
-          setTableRotation1(newRotation1);
-          setTableRotation2(newRotation2);
-          setTableRotation3(newRotation3);
-          setTablePlacement1(newPlacement1);
-          setTablePlacement2(newPlacement2);
-          setTablePlacement3(newPlacement3);
+          setTableRotation1(targetRotation1);
+          setTableRotation2(targetRotation2);
+          setTableRotation3(targetRotation3);
+          setTablePlacement1(targetPlacement1);
+          setTablePlacement2(targetPlacement2);
+          setTablePlacement3(targetPlacement3);
         }
 
         if (progress < 1) {
@@ -902,33 +906,33 @@ const App = () => {
           const newPlacement2 = lerpArray(targetPlacement2, [-100,-10,0], easedProgress);
           const newPlacement3 = lerpArray(targetPlacement3, targetPlacement1, easedProgress);
 
-          setTablePlacement1(newPlacement1);
-          setTablePlacement2(newPlacement2);
-          setTablePlacement3(newPlacement3);
+          setTablePlacement1(targetPlacement2);
+          setTablePlacement2([-100,-10,0]);
+          setTablePlacement3(targetPlacement1);
 
           const newRotation1 = lerpArray(targetRotation1, targetRotation2, easedProgress);
           const newRotation2 = lerpArray(targetRotation2, targetRotation2, easedProgress);
           const newRotation3 = lerpArray(targetRotation3, targetRotation1, easedProgress);
 
-          setTableRotation1(newRotation1);
-          setTableRotation2(newRotation2);
-          setTableRotation3(newRotation3);
+          setTableRotation1(targetRotation2);
+          setTableRotation2(targetRotation2);
+          setTableRotation3(targetRotation1);
         } else if (newTable === 1) {
           const newPlacement1 = lerpArray(targetPlacement3, targetPlacement1, easedProgress);
           const newPlacement2 = lerpArray(targetPlacement1, targetPlacement2, easedProgress);
           const newPlacement3 = lerpArray([100,-10,0], targetPlacement3, easedProgress);
 
-          setTablePlacement1(newPlacement1);
-          setTablePlacement2(newPlacement2);
-          setTablePlacement3(newPlacement3);
+          setTablePlacement1(targetPlacement1);
+          setTablePlacement2(targetPlacement2);
+          setTablePlacement3(targetPlacement3);
 
           const newRotation1 = lerpArray(targetRotation3, targetRotation1, easedProgress);
           const newRotation2 = lerpArray(targetRotation1, targetRotation2, easedProgress);
           const newRotation3 = lerpArray(targetRotation3, targetRotation3, easedProgress);
 
-          setTableRotation1(newRotation1);
-          setTableRotation2(newRotation2);
-          setTableRotation3(newRotation3);
+          setTableRotation1(targetRotation1);
+          setTableRotation2(targetRotation2);
+          setTableRotation3(targetRotation3);
         }
 
         if (progress < 1) {
