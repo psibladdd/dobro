@@ -497,7 +497,7 @@ const Scene = ({
   prevTable, nextTable,urlVideo,seturlVideo,
   targetPlacement1, targetPlacement2, targetPlacement3,
   targetRotation1, targetRotation2, targetRotation3,
-  showGraphVideo, setShowGraphVideo,
+  showGraphVideo, setShowGraphVideo,analysisStarted,setAnalysisStarted,
   cloudsAnimationPhase, setCloudsAnimationPhase,
   showClouds, setShowClouds,
   startFromButton,
@@ -521,6 +521,8 @@ const Scene = ({
 
     if (!leverMode) {
       if (x > 0.20 && x<0.8 && y > 0.27 && currentTable === 2) {
+        if (!analysisStarted) return;
+        setAnalysisStarted(true);
         setShowGraphVideo(true);
         event.stopPropagation();
         event.preventDefault();
@@ -528,6 +530,7 @@ const Scene = ({
       }
 
       if (x > 0.20 && x<0.8 && y > 0.27 && currentTable === 1) {
+
         setShowClouds(true);
         event.stopPropagation();
         event.preventDefault();
@@ -790,6 +793,8 @@ const App = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [showGraphVideo, setShowGraphVideo] = useState(false);
   const [showClouds, setShowClouds] = useState(false);
+  const [analysisStarted, setAnalysisStarted] = useState(false);
+
 
   const [tablePlacement1, setTablePlacement1] = useState([0, -10, 0]);
   const [tablePlacement2, setTablePlacement2] = useState([-12, -10, 0]);
@@ -848,29 +853,16 @@ const App = () => {
         const easedProgress = easeOutCubic(progress);
 
         if (newTable === 0) {
-          const newPlacement1 = lerpArray(targetPlacement1, targetPlacement3, easedProgress);
-          const newPlacement2 = lerpArray(targetPlacement2, targetPlacement1, easedProgress);
-          const newPlacement3 = lerpArray(targetPlacement3, [100,-10,0], easedProgress);
 
           setTablePlacement1(targetPlacement3);
           setTablePlacement2(targetPlacement1);
           setTablePlacement3([100,-10,0]);
 
-          const newRotation1 = lerpArray(targetRotation1, targetRotation3, easedProgress);
-          const newRotation2 = lerpArray(targetRotation2, targetRotation1, easedProgress);
-          const newRotation3 = lerpArray(targetRotation3, targetRotation3, easedProgress);
 
           setTableRotation1(targetRotation3);
           setTableRotation2(targetRotation1);
           setTableRotation3(targetRotation3);
         } else if (newTable === 1) {
-          const newPlacement1 = lerpArray(targetPlacement2, targetPlacement1, easedProgress);
-          const newPlacement2 = lerpArray([-100,-10,0], targetPlacement2, easedProgress);
-          const newPlacement3 = lerpArray(targetPlacement1, targetPlacement3, easedProgress);
-
-          const newRotation1 = lerpArray(targetRotation2, targetRotation1, easedProgress);
-          const newRotation2 = lerpArray(targetRotation2, targetRotation2, easedProgress);
-          const newRotation3 = lerpArray(targetRotation1, targetRotation3, easedProgress);
 
           setTableRotation1(targetRotation1);
           setTableRotation2(targetRotation2);
@@ -902,25 +894,14 @@ const App = () => {
         const easedProgress = easeOutCubic(progress);
 
         if (newTable === 2) {
-          const newPlacement1 = lerpArray(targetPlacement1, targetPlacement2, easedProgress);
-          const newPlacement2 = lerpArray(targetPlacement2, [-100,-10,0], easedProgress);
-          const newPlacement3 = lerpArray(targetPlacement3, targetPlacement1, easedProgress);
-
           setTablePlacement1(targetPlacement2);
           setTablePlacement2([-100,-10,0]);
           setTablePlacement3(targetPlacement1);
-
-          const newRotation1 = lerpArray(targetRotation1, targetRotation2, easedProgress);
-          const newRotation2 = lerpArray(targetRotation2, targetRotation2, easedProgress);
-          const newRotation3 = lerpArray(targetRotation3, targetRotation1, easedProgress);
 
           setTableRotation1(targetRotation2);
           setTableRotation2(targetRotation2);
           setTableRotation3(targetRotation1);
         } else if (newTable === 1) {
-          const newPlacement1 = lerpArray(targetPlacement3, targetPlacement1, easedProgress);
-          const newPlacement2 = lerpArray(targetPlacement1, targetPlacement2, easedProgress);
-          const newPlacement3 = lerpArray([100,-10,0], targetPlacement3, easedProgress);
 
           setTablePlacement1(targetPlacement1);
           setTablePlacement2(targetPlacement2);
@@ -1070,6 +1051,8 @@ const App = () => {
           targetRotation2={targetRotation2}
           targetRotation3={targetRotation3}
           showGraphVideo={showGraphVideo}
+          analysisStarted={analysisStarted}
+          setanalysisStarted={setAnalysisStarted}
           setShowGraphVideo={setShowGraphVideo}
           cloudsAnimationPhase={cloudsAnimationPhase}
           setCloudsAnimationPhase={setCloudsAnimationPhase}
