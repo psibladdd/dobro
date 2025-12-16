@@ -926,9 +926,6 @@ const App = () => {
           setTablePlacement2(targetPlacement2);
           setTablePlacement3(targetPlacement3);
 
-          const newRotation1 = lerpArray(targetRotation3, targetRotation1, easedProgress);
-          const newRotation2 = lerpArray(targetRotation1, targetRotation2, easedProgress);
-          const newRotation3 = lerpArray(targetRotation3, targetRotation3, easedProgress);
 
           setTableRotation1(targetRotation1);
           setTableRotation2(targetRotation2);
